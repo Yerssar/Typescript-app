@@ -1,0 +1,23 @@
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 300px;
+    height: 500px;
+    background: rgb(185, 164, 164);
+    border: 2px solid rgb(24, 55, 65);
+    font-size: 20px;
+
+  }
+ .profile-card > img{
+width: 100;
+ }
+
+ .property-name {
+  font-weight: bold;
+  font-size: 24px;
+ }
+
+ 
