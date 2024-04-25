@@ -7,15 +7,15 @@ function Feedback() {
   const [like, setLike] = useState<number>(0);
   const [dislike, setDislike] = useState<number>(0);
 
-  const addLike = () : void => {
+  const addLike = (): void => {
     setLike((prevValue) => prevValue + 1);
   };
 
-  const addDislike = () :void => {
+  const addDislike = (): void => {
     setDislike((prevValue) => prevValue + 1);
   };
 
-  const resetResults = () : void => {
+  const resetResults = (): void => {
     setLike(0);
     setDislike(0);
   };
