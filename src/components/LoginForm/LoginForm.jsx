@@ -1,27 +1,47 @@
 import Input from "components/Input/Input";
 import Button from "components/Button/Button";
-import { LoginFormWrapper, LoginFormName, InputsContainer } from "./styles";
+import { LoginFormComponent, LoginFormName, InputsContainer } from "./styles";
+import { useFormik } from "formik";
+import { LoginFormValues } from './types';
 
 function LoginForm() {
+  // сохранение возвращаемого useFormik значения в переменную formik
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    } as LoginFormValues,
+    onSubmit: (values: LoginFormValues) => {
+      console.log(values);
+    },
+  });
+
+  console.log(formik);
+
   return (
-    <LoginFormWrapper>
+    //привязываем к элементу формы действие submit
+    <LoginFormComponent onSubmit={formik.handleSubmit}>
       <LoginFormName>Login form</LoginFormName>
       <InputsContainer>
         <Input
-          name="login-email"
+          name="email"
           type="email"
           placeholder="Enter your email"
           label="Email"
+          onInputChange={formik.handleChange}
+          value={formik.values.email}
         />
         <Input
-          name="login-password"
+          name="password"
           type="password"
           placeholder="Enter your password"
           label="Password"
+          onInputChange={formik.handleChange}
+          value={formik.values.password}
         />
       </InputsContainer>
       <Button type="submit" name="Login" />
-    </LoginFormWrapper>
+    </LoginFormComponent>
   );
 }
 
